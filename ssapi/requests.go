@@ -1,4 +1,4 @@
-package api
+package ssapi
 
 import (
 	"encoding/json"
@@ -9,7 +9,7 @@ const steamSpyAPIRoot string = "https://steamspy.com/api.php?"
 
 // FetchAll fetches all steam spy data and returns it as a map[userid string]SteamSpyGame
 func FetchAll() (map[string]SteamSpyGame, error) {
-	resp, err := http.Get(requestType("all"))
+	resp, err := http.Get(steamSpyAPIRoot + "request=all")
 	if err != nil {
 		return nil, err
 	}
@@ -23,8 +23,4 @@ func FetchAll() (map[string]SteamSpyGame, error) {
 	}
 
 	return jsonBody, nil
-}
-
-func requestType(requestType string) string {
-	return steamSpyAPIRoot + "request=" + requestType
 }

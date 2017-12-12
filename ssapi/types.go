@@ -1,4 +1,4 @@
-package api
+package ssapi
 
 // SteamSpyGame represents a game object as fetch Steam Spy
 type SteamSpyGame struct {
